@@ -2,10 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary: #f8f9fa;       /* Off-White */
+  --secondary: #e9ecef;     /* Light Silver */
+  --accent: #dee2e6;        /* Silver */
+  --text-primary: #212529;  /* Near Black */
+  --text-secondary: #495057;/* Dark Gray */
+  --background: #f1f3f5;    /* Light Gray Background */
+  --card-bg: #ffffff;       /* White for cards */
+  --border: #ced4da;        /* Light Border */
+}
+
 @keyframes progress-bar {
   from { width: 0; }
   to { width: 62%; }
 }
+
 .animate-progress-bar {
   animation: progress-bar 2s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+/* Global Typography */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-sans font-medium text-gray-100;
+}
+
+h1 {
+  @apply text-4xl md:text-5xl lg:text-6xl;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl lg:text-5xl;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl lg:text-4xl;
+}
+
+body {
+  @apply bg-gray-100 text-gray-900;
+  min-height: 100vh;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply bg-black text-white border-2 border-white hover:bg-gray-900 transition-colors duration-200 px-6 py-3 rounded-none font-medium;
+}
+
+.btn-secondary {
+  @apply bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-colors duration-200 px-6 py-3 rounded-none font-medium;
+}
+
+/* Card Styles */
+.card {
+  @apply bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200;
+}
+
+/* Form Elements */
+input, textarea, select {
+  @apply bg-white border border-gray-300 text-gray-900 px-4 py-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+}
+
+/* Navigation */
+.nav-link {
+  @apply text-gray-300 hover:text-white transition-colors duration-200 px-4 py-2;
+}
+
+/* Hero Section */
+.hero-gradient {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Launch Page Specific */
+.launch-page {
+  @apply min-h-screen flex items-center justify-center text-center p-4;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.launch-content {
+  @apply max-w-4xl mx-auto p-8;
+}
+
+.launch-title {
+  @apply text-5xl md:text-7xl font-bold mb-6 text-gray-900;
+  letter-spacing: -0.05em;
+}
+
+.launch-subtitle {
+  @apply text-xl md:text-2xl text-gray-600 mb-12;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }

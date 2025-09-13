@@ -1,15 +1,12 @@
 import { createClient } from '@supabase/supabase-js';
 
-// In production, you would use your actual Supabase credentials
-const supabaseUrl = 
-    import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_URL !== 'your_supabase_url_here'
-    ? import.meta.env.VITE_SUPABASE_URL 
-    : 'https://demo.supabase.co';
+// Get Supabase URL and key from environment variables
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-const supabaseKey = 
-    import.meta.env.VITE_SUPABASE_ANON_KEY && import.meta.env.VITE_SUPABASE_ANON_KEY !== 'your_supabase_anon_key_here'
-    ? import.meta.env.VITE_SUPABASE_ANON_KEY 
-    : 'demo-key';
+if (!supabaseUrl || !supabaseKey) {
+    throw new Error('Missing Supabase environment variables. Please check your .env file and Netlify environment variables.');
+}
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
 

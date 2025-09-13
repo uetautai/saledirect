@@ -16,7 +16,6 @@ import StateCompliance from './pages/StateCompliance';
 import MarketInsights from './pages/MarketInsights';
 import Community from './pages/Community';
 import LaunchPage from './pages/LaunchPage';
-import PropertyGuide from './pages/PropertyGuide';
 
 function App() {
   // Simple local state for launch page
@@ -68,7 +67,6 @@ function App() {
           <Route path="/community" element={<Community />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/create-listing" element={<CreateListing />} />
-          <Route path="/property-guide" element={<PropertyGuide />} />
         </Routes>
       </Layout>
     </Router>

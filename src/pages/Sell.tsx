@@ -83,7 +83,8 @@ const Sell: React.FC = () => {
       icon: Shield,
       title: '100% Legal Compliance',
       description: 'State-specific legal templates and compliance checking',
-      stat: '100%'
+      stat: '100%',
+      color: 'from-blue-500 to-blue-600'
     },
     {
       icon: TrendingUp,
@@ -155,25 +156,23 @@ const Sell: React.FC = () => {
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <Card
+                <div
                   key={benefit.title}
-                  hover={true}
-                  className="text-center animate-scale-in"
-                  style={{ animationDelay: `${index * 0.1}s` } as React.CSSProperties}
+                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200 text-center"
                 >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-primary-100 to-primary-200 rounded-2xl mb-4">
-                    <Icon className="h-8 w-8 text-primary-600" />
+                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${benefit.color || 'from-blue-100 to-blue-200'} rounded-2xl mb-4 mx-auto`}>
+                    <Icon className="h-8 w-8 text-blue-600" />
                   </div>
-                  <div className="text-3xl font-bold text-neutral-900 mb-2">
+                  <div className="text-3xl font-bold text-gray-900 mb-2">
                     {benefit.stat}
                   </div>
-                  <h3 className="text-lg font-semibold text-neutral-900 mb-2">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     {benefit.title}
                   </h3>
-                  <p className="text-neutral-600 text-sm">
+                  <p className="text-gray-600 text-sm">
                     {benefit.description}
                   </p>
-                </Card>
+                </div>
               );
             })}
           </div>
@@ -204,14 +203,11 @@ const Sell: React.FC = () => {
                 >
                   <Card hover={true} className="h-full">
                     <div className="flex items-start space-x-4">
-                      <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${step.color} rounded-xl flex items-center justify-center`}>
-                        <Icon className="h-6 w-6 text-white" />
+                      <div className={`flex-shrink-0 w-14 h-14 bg-gradient-to-r ${step.color} rounded-xl flex items-center justify-center shadow-md`}>
+                        <div className="text-white font-bold text-xl">{step.number}</div>
                       </div>
                       <div className="flex-1">
-                        <div className="text-sm font-medium text-primary-600 mb-1">
-                          Step {step.number}
-                        </div>
-                        <h3 className="text-lg font-semibold text-neutral-900 mb-2">
+                        <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight">
                           {step.title}
                         </h3>
                         <p className="text-neutral-600">
